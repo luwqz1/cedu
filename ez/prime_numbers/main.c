@@ -2,9 +2,13 @@
 Write a program to compute prime numbers in range from 1 to 100 and then take
 prime numbers with prime indexes. Print them to stdout.
 */
-#include <stdbool.h>
-#include <stdio.h>
 #include <stdlib.h>
+#include <stdio.h>
+
+typedef enum bool {
+    false,
+    true,
+} bool;
 
 bool is_prime(int n) {
     for (int i = 2; i <= n / 2; i++)
