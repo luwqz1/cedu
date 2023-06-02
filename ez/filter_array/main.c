@@ -18,7 +18,7 @@ typedef struct FilteredArray {
 
 
 bool is_positive_number(int number) {
-    return number > 0;
+    return number >= 0;
 }
 
 FilteredArray filter(bool (*func)(int), int *arr, size_t size) {
