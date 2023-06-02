@@ -1,7 +1,6 @@
 /*
     2. Easy task: Create function filter and demonstrate with any example.
 */
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
