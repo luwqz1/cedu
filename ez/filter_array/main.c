@@ -69,7 +69,7 @@ int main(void) {
     int size_arr, *arr;
     printf("Input size of array: ");
     scanf("%d", &size_arr);
-    arr = calloc(size_arr, sizeof(int));
+    arr = (int *)calloc(size_arr, sizeof(int));
     fill_arr_random_numbers(arr, size_arr);
     printf("Generated array: "); repr_arr(arr, size_arr);
     FilteredArray filtered_arr = filter(is_positive_number, arr, size_arr);
