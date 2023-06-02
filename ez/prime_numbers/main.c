@@ -1,4 +1,5 @@
-/* 1. Easy task: Write a program to compute prime numbers in range from 1 to 100 and then take
+/* 
+   1. Easy task: Write a program to compute prime numbers in range from 1 to 100 and then take
    prime numbers with prime indexes. Print them to stdout.
 */
 #include <stdlib.h>
