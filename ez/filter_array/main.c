@@ -6,7 +6,7 @@
 #include <string.h>
 #include <time.h>
 
-typedef enum bool {
+typedef enum Bool {
     false,
     true,
 } bool;

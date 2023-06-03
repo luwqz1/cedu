@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-typedef enum bool {
+typedef enum Bool {
     false,
     true,
 } bool;
@@ -22,7 +22,7 @@ void create_range(int *rng_ptr, int start, int stop) {
         rng_ptr[i - 1] = i;
 }
 
-int main() {
+int main(void) {
     int start = 1, stop = 100;
     int *rng_ptr = (int *)calloc(stop, sizeof(int));
     create_range(rng_ptr, start, stop); 
