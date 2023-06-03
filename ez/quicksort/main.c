@@ -1,4 +1,9 @@
+/*
+    3. Easy task: Write a quicksort function that will take parameters: 
+    pivot function, array, start, end.
+*/
 #include <stdio.h>
+
 
 void swap(int *a, int *b) {
     int temp = *a;
