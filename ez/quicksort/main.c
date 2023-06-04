@@ -1,33 +1,49 @@
 /*
     3. Easy task: Write a quicksort function that will take parameters: 
-    pivot function, array, start, end.
+    calculate pivot function, array, left, right.
 */
 #include <stdio.h>
 
-void swap(int *a, int *b) {
+#define ARRLEN(arr) (sizeof(arr) / sizeof(arr[0]))
+
+static inline void swap(int *a, int *b) {
     int temp = *a;
     *a = *b;
     *b = temp;
 }
 
-int partition(int arr[], int start, int end) {
-    int pivot = arr[end], i = start - 1;
- 
-    for (int j = start; j <= end - 1; j++) {
-        if (arr[j] < pivot) {
+int partition(
+    int (*calculate_pivot)(int *, int, int),
+    int arr[], int left, int right) {
+    int i = left - 1, j = right + 1,
+        pivot = calculate_pivot(arr, left, right);
+
+    while (1) {
+        i++;
+        while (arr[i] < pivot)
             i++;
-            swap(&arr[i], &arr[j]);
-        }
+        j--;
+        while (arr[j] > pivot)
+            j--;
+
+        if (i >= j)
+            return j;
+        swap(&arr[i], &arr[j]);
     }
-    swap(&arr[i + 1], &arr[end]);
-    return i + 1;
 }
 
-void quicksort(int (*func)(int *, int, int), int arr[], int start, int end) {
-    if (start < end) {
-        int pi = func(arr, start, end);
-        quicksort(func, arr, start, pi - 1);
-        quicksort(func, arr, pi + 1, end);
+// select the middle element to be the pivot.
+int select_middle_element(int arr[], int left, int right) {
+    return arr[(left + right) / 2];
+}
+
+void quicksort(
+    int (*calculate_pivot)(int *, int, int),
+    int arr[], int left, int right) {
+    if (left < right) {
+        int sp_index = partition(calculate_pivot, arr, left, right);
+        quicksort(calculate_pivot, arr, left, sp_index);
+        quicksort(calculate_pivot, arr, sp_index + 1, right);
     }
 }
 
@@ -42,10 +58,10 @@ void repr_arr(int arr[], size_t size) {
 }
 
 int main(void) {
-    int arr[] = { 100, 803, 3012, 90231, 402324, 5012, 7, 1};
-    size_t size_arr = sizeof(arr) / sizeof(arr[0]);
+    int arr[] = { 2, 100, 803, 3012, 90231, 402324, 5012, 7 };
+    size_t size_arr = ARRLEN(arr);
     printf("Array: "); repr_arr(arr, size_arr);
-    quicksort(partition, arr, 0, size_arr - 1);
+    quicksort(select_middle_element, arr, 0, size_arr - 1);
     printf("Sorted array: "); repr_arr(arr, size_arr);
     return 0;
 }
