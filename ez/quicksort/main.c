@@ -5,12 +5,7 @@
 #include <stdio.h>
 
 #define ARRLEN(arr) (sizeof(arr) / sizeof(arr[0]))
-
-static inline void swap(int *a, int *b) {
-    int temp = *a;
-    *a = *b;
-    *b = temp;
-}
+#define SWAP(T, x, y) do { T SWAP = x; x = y; y = SWAP; } while (0)
 
 int partition(
     int (*calculate_pivot)(int *, int, int),
@@ -28,7 +23,7 @@ int partition(
 
         if (i >= j)
             return j;
-        swap(&arr[i], &arr[j]);
+        SWAP(int, arr[i], arr[j]);
     }
 }
 
