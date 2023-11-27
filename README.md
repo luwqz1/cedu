@@ -1,6 +1,6 @@
 # The C programming language education
 
-_Arseny gives me **easy**, **middle** and **hard** tasks and im trying to solve them.
+Arseny gives me **easy**, **middle** and **hard** tasks and im trying to solve them.
 
 For example task `cedu/ez/prime_numbers/main.c`:
 
