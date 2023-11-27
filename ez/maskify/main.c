@@ -2,22 +2,22 @@
 #include <stdlib.h>
 #include <string.h>
 
-char *maskify(char *string) {
-    char *maskify = (char *)malloc((strlen(string) + 1) * sizeof(char));
-    for (int i = 0; i < strlen(string); i++) {
-        if (i < strlen(string) - 4)
-            maskify[i] = string[i];
+
+char *maskify(const char s[]) {
+    char *buf = (char *)malloc(strlen(s) * sizeof(char));
+    for (int i = 0; i < strlen(s); i++) {
+        if (i < strlen(s) - 4)
+            buf[i] = s[i];
         else
-            maskify[i] = '#';
+            buf[i] = '#';
     }
-    maskify[strlen(string)] = '\0';
-    return maskify;
+    return buf;
 }
 
+
 int main(void) {
-    char *string = "sookaaaa1234";
-    char *mask = maskify(string);
-    printf("%s = %s\n", string, mask);
-    free(mask);
+    char *mask_s = maskify("sooqa");
+    printf("%s\n", mask_s);
+    free(mask_s);
     return 0;
 }

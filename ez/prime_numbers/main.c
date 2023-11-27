@@ -5,10 +5,12 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+
 typedef enum Bool {
     false,
     true,
 } bool;
+
 
 bool is_prime(int n) {
     for (int i = 2; i <= n / 2; i++)
@@ -17,10 +19,12 @@ bool is_prime(int n) {
     return false;
 }
 
+
 void create_range(int *rng_ptr, int start, int stop) {
     for (int i = start; i < stop + 1; i++)
         rng_ptr[i - 1] = i;
 }
+
 
 int main(void) {
     int start = 1, stop = 100;
