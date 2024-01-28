@@ -26,7 +26,7 @@ void append(List *list, int element) {
 
 
 List* init_list(int capacity) {
-    List *ptr_list = (List*)malloc(sizeof(List*));
+    List *ptr_list = (List*)malloc(sizeof(List));
     ptr_list->ptr = (int*)malloc(sizeof(int) * ptr_list->capacity);
     ptr_list->capacity = capacity;
     ptr_list->n = 0;
